@@ -10,4 +10,16 @@ const giveFeedback = (req, res) => {
   }
 };
 
-module.exports = { giveFeedback };
+const showAll = (req, res) => {
+  try {
+    const feedbacks = Feedback.showAll();
+    res.send(feedbacks);
+  } catch (error) {
+    res.status(500).send({ error: "Server error" });
+  }
+};
+
+module.exports = {
+  giveFeedback,
+  showAll,
+};
