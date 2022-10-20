@@ -6,4 +6,6 @@ router.post("/", feedback.giveFeedback);
 
 router.get("/", feedback.showAll);
 
+router.delete("/:id", feedback.remove);
+
 module.exports = router;

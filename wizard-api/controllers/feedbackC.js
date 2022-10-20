@@ -19,7 +19,21 @@ const showAll = (req, res) => {
   }
 };
 
+const remove = (req, res) => {
+  const id = parseInt(req.params.id);
+  //console.log(id);
+  try {
+    const feedback = Feedback.select(id);
+    console.log(feedback);
+    feedback.remove();
+    res.send("Deleted");
+  } catch (err) {
+    res.status(404).send({ error: "Feedback not found" });
+  }
+};
+
 module.exports = {
   giveFeedback,
   showAll,
+  remove,
 };
